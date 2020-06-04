@@ -21,6 +21,24 @@ def selection_sort( arr ):
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
+    # loop through arr and compare each item to the next
+    # if the next item is smaller than the current, swap
+    # if a swap was made we need to go back and iterate again
+
+    # creating a variable to keep track of whether a swap was made
+    # defaulting to False
+    swap_made = False
+
+    for i in range(0, len(arr) - 1):
+        # if number at current index is smaller than the next, swap
+        if arr[i] > arr[i + 1]:
+            arr[i], arr[i + 1] = arr[i + 1], arr[i]
+            # change the value of swap_made to True since a swap was made
+            swap_made = True
+    # as mentioned above, if a swap was made we must iterate again
+    # because we still need to sort the rest of the array
+    if swap_made:
+        bubble_sort(arr)
 
     return arr
 
